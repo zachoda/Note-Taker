@@ -21,4 +21,4 @@
 
 
 ### Screenshot: 
-![image](https://user-images.githubusercontent.com/105247622/184430677-51b505ff-5bcc-406c-97cb-b39d8dad025f.png)
+![image](https://user-images.githubusercontent.com/105247622/185504079-346f22cb-ac39-43ac-92f6-0cdf8173a0f2.png)
