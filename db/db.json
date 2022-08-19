@@ -1,5 +1,4 @@
-{
-  "note": [
+[
     {
       "title": "test",
       "text": "test"
@@ -7,6 +6,25 @@
     {
       "title": "start",
       "text": "start"
+    },
+    {
+      "title": "d",
+      "text": "d"
+    },
+    {
+      "title": "note",
+      "text": "note"
+    },
+    {
+      "title": "work",
+      "text": "please"
+    },
+    {
+      "title": "1",
+      "text": "1"
+    },
+    {
+      "title": "fs",
+      "text": "fs"
     }
   ]
-}

@@ -1,16 +1,38 @@
-
 const router = require("express").Router();
-const  notes  = require("../../db/db.json");
-const { validateNote, createNewNote } = require("../../lib/notes");
+const fs = require("fs");
+const notes = require("../../db/db.json");
 
-router.post("/notes", (req, res) => {
-    // req.body.id = Nanoid???;
-if(!validateNote(req.body)) {
-    res.status(400).send("Your note is improperly formatted.");
-} else {
-    const note = createNewNote(req.body, notes);
-    res.json(note);
-}
+router.get("/notes", (req, res) => {
+  console.log("HIT");
+  fs.readFile("../../db/db.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(JSON.parse(data));
+      const oldNotes = JSON.parse(data);
+      res.JSON(oldNotes);
+    }
+  });
 });
 
-module.exports = router
+router.post("/notes", (req, res) => {
+  const newNote = { title: req.body.title, text: req.body.text };
+  const noteList = JSON.parse(
+    fs.readFileSync("../../db/db.json", (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        const noteList = [];
+        const oldNotes = JSON.parse(data);
+        noteList.push(newNote, oldNotes);
+      }
+    })
+  );
+  fs.writeFileSync(
+    path.join(__dirname, "../db/db.json"),
+    JSON.stringify(noteList, null, 2)
+  );
+  res.json(noteList);
+});
+
+module.exports = router;
